@@ -1,0 +1,44 @@
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"> <%= plural_table_name.humanize %></h3>
+    <div class="card-tools">
+      <%%= link_to "New <%= singular_table_name.humanize %>", new_<%= singular_table_name %>_path, class: 'btn btn-sm btn-primary' %>
+
+
+
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+
+  <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm">
+    <thead>
+      <tr>
+     	  <% attributes.each do |attribute| %>
+        <th><%= attribute.human_name %></th>
+        <% end %>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%% @<%= plural_table_name%>.each do |<%= singular_table_name %>| %>
+        <%%= content_tag :tr, id: dom_id(<%= singular_table_name %>), class: dom_class(<%= singular_table_name %>) do %>
+           <% attributes.each do |attribute| %>
+            <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+          <% end %>
+          <td>
+              <%%= link_to "Detail",<%= singular_table_name %>, class: 'btn btn-sm btn-primary'   %>
+
+              <%%= link_to "Edit" ,edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'btn btn-sm btn-info'   %>
+
+              <%%= button_to "Delete", <%= singular_table_name %>_path(<%= singular_table_name %>), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                </td>
+        <%% end %>
+      <%% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+

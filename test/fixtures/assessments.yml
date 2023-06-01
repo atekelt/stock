@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: assessments
+#
+#  id                       :uuid             not null, primary key
+#  max                      :float
+#  status                   :boolean
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  teacher_assignment_id :uuid
+#
+# Indexes
+#
+#  index_assessments_on_teacher_assignment_id  (teacher_assignment_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (teacher_assignment_id => teacher_assignments.id)
+#
+
+one:
+  teacher_assignment: one
+  max: 1.5
+  status: false
+
+two:
+  teacher_assignment: two
+  max: 1.5
+  status: false

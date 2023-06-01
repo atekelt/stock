@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: semesters
+#
+#  id         :uuid             not null, primary key
+#  name       :string
+#  sequence   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  sequence: 1
+
+two:
+  name: MyString
+  sequence: 1

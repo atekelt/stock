@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: student_grades
+#
+#  id               :uuid             not null, primary key
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  academic_year_id :uuid
+#  grade_id         :uuid
+#  student_id       :uuid
+#
+# Indexes
+#
+#  index_student_grades_on_academic_year_id  (academic_year_id)
+#  index_student_grades_on_grade_id          (grade_id)
+#  index_student_grades_on_student_id        (student_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (academic_year_id => academic_years.id)
+#  fk_rails_...  (grade_id => grades.id)
+#  fk_rails_...  (student_id => students.id)
+#
+require "test_helper"
+
+class StudentGradeTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end

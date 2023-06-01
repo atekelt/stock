@@ -1,0 +1,20 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      <%= singular_table_name.humanize %>
+    </h4>
+  </div>
+  <div class="card-body">
+  <% attributes.each do |attribute| %>
+    <b><%= attribute.human_name %>:</b>
+    <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    <br>
+  <% end %>
+  </div>
+  <div class="card-footer">
+    <%%= link_to "Edit" ,edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-sm btn-info'   %>
+    <%%= button_to "Delete", <%= singular_table_name %>_path(@<%= singular_table_name %>), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+
+       </div>
+</div>

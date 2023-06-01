@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  grade: MyString
+  date_of_birth: 2022-11-14
+  sex: MyString
+  age: 1
+  nationality: MyString
+  medical_issues: MyText
+  previous_school_name: MyString
+  number_of_years: 1
+  emergency_contact_full_name: MyString
+  emergency_contact_relation: MyString
+  emergency_contact_telephone: MyString
+
+two:
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  grade: MyString
+  date_of_birth: 2022-11-14
+  sex: MyString
+  age: 1
+  nationality: MyString
+  medical_issues: MyText
+  previous_school_name: MyString
+  number_of_years: 1
+  emergency_contact_full_name: MyString
+  emergency_contact_relation: MyString
+  emergency_contact_telephone: MyString

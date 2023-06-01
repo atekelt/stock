@@ -1,0 +1,46 @@
+@import "bootstrap/scss/bootstrap";
+
+@import "actiontext.css";
+@import "adminlte";
+@import "all";
+@import "overlay_scrollbars.min";
+@import "datatables.net-bs5/css/dataTables.bootstrap5";
+@import "datatables.net-responsive-bs5/css/responsive.bootstrap5";
+@import "select2.min";
+@import "select2-bootstrap-5-theme.min";
+
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5";
+@import "searchPanes.bootstrap5.min";
+@import "searchPanes.dataTables";
+@import "select.bootstrap5.min.css";
+@import "rowGroup.bootstrap5.min";
+
+
+.button_to {
+  display: inline !important;
+}
+
+.btn {
+  //padding-top: 0.15rem !important;
+  //padding-left: 0.15rem !important;
+}
+
+.select2-container--bootstrap-5 .select2-dropdown .select2-search .select2-search__field:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.05rem rgb(13 110 253 / 5%) !important;
+}
+
+.select2-container--bootstrap-5.select2-container--focus .select2-selection, .select2-container--bootstrap-5.select2-container--open .select2-selection {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.05rem rgb(13 110 253 / 5%) !important;
+
+}
+
+.card-header {
+  padding-top: 0.71rem;
+  padding-bottom: 0.71rem;
+}
+
+@import 'actiontext.css';
+
+@import 'bootstrap-icons/font/bootstrap-icons';

@@ -1,0 +1,20 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      Role
+    </h4>
+  </div>
+  <div class="card-body">
+  
+    <b>Name:</b>
+    <%= @role.name %>
+    <br>
+  
+  </div>
+  <div class="card-footer">
+    <%= link_to "Edit" ,edit_role_path(@role), class: 'btn btn-sm btn-info'   %>
+    <%= button_to "Delete", role_path(@role), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+
+       </div>
+</div>

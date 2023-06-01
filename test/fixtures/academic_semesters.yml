@@ -1,0 +1,37 @@
+# == Schema Information
+#
+# Table name: academic_semesters
+#
+#  id               :uuid             not null, primary key
+#  end_date         :date
+#  start_date       :date
+#  status           :boolean
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  academic_year_id :uuid
+#  semester_id      :uuid
+#
+# Indexes
+#
+#  index_academic_semesters_on_academic_year_id  (academic_year_id)
+#  index_academic_semesters_on_semester_id       (semester_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (academic_year_id => academic_years.id)
+#  fk_rails_...  (semester_id => semesters.id)
+#
+
+one:
+  academic_year: one
+  semester: one
+  start_date: 2022-04-02
+  end_date: 2022-04-02
+  status: false
+
+two:
+  academic_year: two
+  semester: two
+  start_date: 2022-04-02
+  end_date: 2022-04-02
+  status: false

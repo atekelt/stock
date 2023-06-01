@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enrollment: one
+  total_mark: 1.5
+  bonus: 1.5
+  academic_semester: one
+
+two:
+  enrollment: two
+  total_mark: 1.5
+  bonus: 1.5
+  academic_semester: two

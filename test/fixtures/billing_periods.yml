@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment_type: one
+  start_date: 2023-03-07 09:51:10
+  duration: 9.99
+  miscellaneous_fee: 9.99
+  miscellaneous_fee_reason: MyString
+
+two:
+  payment_type: two
+  start_date: 2023-03-07 09:51:10
+  duration: 9.99
+  miscellaneous_fee: 9.99
+  miscellaneous_fee_reason: MyString

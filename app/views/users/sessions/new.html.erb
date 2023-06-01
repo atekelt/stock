@@ -1,0 +1,52 @@
+
+      <body class="login-page">
+        <div class="login-box">
+          <!-- /.login-logo -->
+          <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+              <a href="<%= root_path %>" class="h1"><b>W</b>e<b>S</b>chool</a>
+            </div>
+            <div class="card-body">
+
+              <%= image_tag "winner.png", width: '124px', class: "d-flex mx-auto logo" %>
+
+              <br>
+
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="input-group mb-3">
+                  <label class="visually-hidden" for="user_username">Username</label>
+                  <div class="input-group">
+                    <div class="input-group-text text-primary"><span class="fas fa-envelope"></span></div>
+                    <input type="text" class="form-control" name="user[user_name]" id="user_username" placeholder="Username">
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="visually-hidden" for="password">Username</label>
+                  <div class="input-group">
+                    <div class="input-group-text text-primary"><span class="fas fa-lock"></span></div>
+                    <input type="password" class="form-control" name="user[password]" id="password" placeholder="Password">
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="icheck-primary">
+                      <% if devise_mapping.rememberable? %>
+                      <%= f.check_box :remember_me, class: "form-check-input" %>
+                      <%= f.label :remember_me, class: "form-check-label" %>
+                    <% end %>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="input-group mb-3">
+                  <%= f.submit "Log in", class: "btn btn-primary w-100", data: { disable_with: "Loging in..." } %>
+                </div>
+                  <!-- /.col -->
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </body>
+
+
+

@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: academic_years
+#
+#  id         :uuid             not null, primary key
+#  end_date   :date
+#  name       :string
+#  start_date :date
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  start_date: 2022-04-02
+  end_date: 2022-04-02
+
+two:
+  name: MyString
+  start_date: 2022-04-02
+  end_date: 2022-04-02

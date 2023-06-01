@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- For RTL verison -->
+<!-- <html lang="en" dir="rtl"> -->
+<head>
+  <title>WeSchool</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application" %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <%= javascript_importmap_tags %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<% if user_signed_in? %>
+  <body class="layout-fixed sidebar-open" cz-shortcut-listen="true" >
+
+  <div class="wrapper">
+
+
+    <!-- Navbar -->
+
+    <%= render "shared/topbar" %>
+    <%= render "shared/sidenav" %>
+
+    <!-- Main content -->
+
+    <main class="content-wrapper pt-3">
+      <div class="content">
+        <div class="container-fluid">
+          <%= render partial: "shared/flash" %>
+          <%#= toastr_flash %>
+          <%= turbo_frame_tag "remote_modal", target: "_top" %>
+
+          <%= yield %>
+
+        </div><!-- /.container-fluid -->
+      </div>
+    </main>
+    <!-- /.content-wrapper -->
+    <%= render "shared/footer" %>
+
+
+  </div>
+  <!--  ./wrapper -->
+
+
+  </body>
+<% else %>
+
+  <%= yield %>
+
+<% end %>
+
+</html>

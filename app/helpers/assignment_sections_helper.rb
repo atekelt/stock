@@ -1,0 +1,2 @@
+module AssignmentSectionsHelper
+end

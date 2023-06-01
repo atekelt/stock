@@ -1,0 +1,29 @@
+<table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm" data-controller="datatable">
+<thead>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Current Role</th>
+    <th>Actions
+
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @users.each do |user| %>
+   <tr>
+
+      <td><%= user.user_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.current_role %></td>
+      <td>
+        <%= link_to 'Edit', edit_user_path(user) ,data: { action: "click->inbox#show", }%>
+        <%= link_to 'show', user ,data: { action: "click->inbox#show", }%></td>
+
+
+
+</tr>
+    <% end %>
+    </tbody>
+    </table>

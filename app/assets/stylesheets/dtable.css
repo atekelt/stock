@@ -1,0 +1,66 @@
+#break {
+    page-break-before: always;
+    page-break-inside: avoid;
+}
+
+table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+table.data-table tbody tr,
+table.data-table thead {
+    border: 1px solid #aeaeae;
+    border-radius: 6px;
+}
+
+table.data-table tbody td {
+    border: 1px solid #aeaeae;
+}
+
+table.data-table thead th {
+    border: 1px solid #aeaeae;
+}
+
+table.data-table td, table.data-table th {
+    color: #000000;
+    font-size: 12px;
+    border: 1px solid gray;
+    padding-left: 10px;
+}
+
+table.data-table thead {
+    background-color: #Fff;
+
+}
+
+table.data-table tbody {
+
+    height: auto;
+
+}
+
+table.data-table a {
+    color: blue;
+}
+
+table.dataTable {
+    color: black;
+}
+
+table.dataTable a {
+    color: blue;
+}
+
+thead {
+    display: table-header-group
+}
+
+tfoot {
+    display: table-row-group
+}
+
+tr {
+    page-break-inside: avoid
+}

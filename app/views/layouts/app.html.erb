@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- For RTL verison -->
+<!-- <html lang="en" dir="rtl"> -->
+<head>
+  <title>Awach</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application" %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+   <%= javascript_importmap_tags %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+
+<body data-turbo="false">
+
+<!--  ./wrapper -->
+
+<div class="card" >
+  <div class="card-header">
+    <h3 class="card-title">
+      <%= image_tag "awach.png", height: 50, alt: "Awach Logo", class: "brand-image" %>አዋጭ የ ጠቅላላ ጉባኤ ምርጫ</h3>
+
+    <div class="card-tools">
+      <%= link_to new_user_session_url, method: :delete, class: "btn btn-tool" do %>
+        <i class="fas fa-key"></i>Login
+      <% end %>
+
+    </div>
+  </div>
+  </div>
+
+  <!-- /.card-footer-->
+
+
+
+  <%= render partial: "shared/flash" %>
+ <%= turbo_frame_tag "remote_modal" %>
+  <%= yield %>
+
+<%#= toastr_flash %>
+</body>
+
+</html>

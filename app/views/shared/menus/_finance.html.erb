@@ -1,0 +1,160 @@
+<ul class="nav nav-pills nav-sidebar flex-column gap-2" data-lte-toggle="treeview" role="menu" data-accordion="false">
+  <li class="nav-item ">
+    <a class="nav-link ">
+      <i class="nav-icon fas fa-home"></i>
+      <p>
+        Setting
+        <i class="end fas fa-angle-right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview" style="box-sizing: border-box; display:<% menu?('a')? "block" : "none" %>;">
+
+      <li class="nav-item">
+
+        <%= link_to merchants_path, data: { controller: "link", action: "connect" }, class: "nav-link " do %>
+
+          <i class="nav-icon fas fa-address-card"></i>
+          <p>
+            Merchant
+          </p>
+        <% end %>
+      </li>
+      <li class="nav-item"><%= link_to payment_types_path, data: { controller: "link", action: "connect" }, class: "nav-link " do %>
+          <i class="nav-icon fas fa-book-open"></i>
+          <p>
+            Payment type
+          </p>
+        <% end %></li>
+      <li class="nav-item">
+        <%= link_to billing_periods_path, data: { controller: "link", action: "connect" }, class: "nav-link " do %>
+          <i class="nav-icon fas fa-book-open"></i>
+          <p>
+            Billing Periods
+          </p>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to penalties_path, data: { controller: "link", action: "connect" }, class: "nav-link " do %>
+          <i class="nav-icon fas fa-book-open"></i>
+          <p>
+            Penalty
+          </p>
+
+        <% end %>
+      </li>
+
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link ">
+      <i class="nav-icon fas fa-home"></i>
+      <p>
+        Bill
+        <i class="end fas fa-angle-right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview" style="box-sizing: border-box; display:<% menu?('a')? "block" : "none" %>;">
+
+      <% if can? :invoice, Bill %>
+        <li class="nav-item">
+          <%= link_to invoice_bills_path, class: "nav-link #{(params[:controller] == 'bills' && params[:action] == 'invoice') ? 'active' : nil}" do %>
+            <i class="nav-icon fas fa-book-open"></i>
+            <p>
+              Invoice
+            </p>
+          <% end %>
+        </li>
+      <% end %>
+      <% if can? :create, Bill %>
+        <li class="nav-item">
+          <%= link_to new_bill_path, class: "nav-link #{(params[:controller] == 'bills' && params[:action] == 'new') ? 'active' : nil}" do %>
+            <i class="nav-icon fas fa-book-open"></i>
+            <p>
+              New bill
+            </p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link ">
+      <i class="nav-icon fas fa-chart-bar"></i>
+      <p>
+        Report
+        <i class="end fas fa-angle-right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview" style="box-sizing: border-box; display:<% menu?('a')? "block" : "none" %>;">
+      <% if can? :index, Bill %>
+        <li class="nav-item">
+          <%= link_to bills_path, class: "nav-link #{(params[:controller] == 'bills' && params[:action] == 'index') ? 'active' : nil}" do %>
+            <i class="bi bi-bank"></i>
+            <p>Bills </p>
+          <% end %>
+        </li>
+      <% end %>
+      <% if can? :index, Payment %>
+        <li class="nav-item">
+          <%= link_to payments_path, class: "nav-link #{params[:controller] == 'payments' ? 'active' : nil}" do %>
+            <i class="bi bi-currency-dollar"></i>
+            <p> Payments </p>
+          <% end %>
+        </li>
+      <% end %>
+      <% if can? :index, PenaltyLog %>
+        <li class="nav-item">
+          <%= link_to penalty_logs_path, class: "nav-link #{params[:controller] == 'penalty_logs' ? 'active' : nil}" do %>
+            <i class="bi bi-stack"></i>
+            <P>Penalty Log</P>
+          <% end %>
+        </li>
+      <% end %>
+      <% if can? :index, SmsNotification %>
+        <li class="nav-item">
+          <%= link_to sms_notifications_path, class: "nav-link #{(params[:controller] == 'sms') ? 'active' : nil}" do %>
+            <i class="bi bi-chat-left-text"></i>
+            <p> Messages </p>
+          <% end %>
+        </li>
+      <% end %>
+      <%= render partial: 'shared/menus/dashboard_links' %>
+    </ul>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link ">
+      <i class="nav-icon fas fa-chart-bar"></i>
+      <p>
+        Message
+        <i class="end fas fa-angle-right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview" style="box-sizing: border-box; display:<% menu?('a')? "block" : "none" %>;">
+
+      <li class="nav-item">
+        <%= link_to messages_path, class: "nav-link" do %>
+          <i class="nav-icon fas fa-envelope"></i>
+          <p>
+            Messages
+          </p>
+        <% end %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to announcements_path, class: "nav-link #{active_link? "active", 'message'}" do %>
+          <i class="nav-icon fas fa-bullhorn"></i>
+          <p>Announcements</p>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/apply">
+          <i class="nav-icon fas fa-file"></i>
+          <p>
+            New Application
+          </p>
+        </a>
+
+      </li>
+    </ul>
+  </li>
+</ul>

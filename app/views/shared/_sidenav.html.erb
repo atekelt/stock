@@ -1,0 +1,43 @@
+<aside class="main-sidebar sidebar-bg-light sidebar-color-primary shadow">
+
+  <div class="brand-container ms-3">
+    <a href="<%= root_path %>" class="brand-link">
+      <%= image_tag "winner2.png",  alt: "WeSchool Logo"    %>
+      <span class="brand-text fw-bold" style="color: #3C7DDD"></span>
+    </a>
+
+  </div>
+  <!-- Sidebar -->
+  <div class="sidebar ">
+    <nav class="mt-2">
+      <!-- Sidebar Menu -->
+        <ul class="nav nav-pills nav-sidebar flex-column gap-2" data-lte-toggle="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a class="nav-link ">
+              <i class="nav-icon fas fa-users-cog"></i>
+              <p>
+                Parent
+              </p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <%= link_to root_path, class: "nav-link #{active_link? "active", 'message'}" do %>
+              <i class="nav-icon fas fa-bullhorn"></i>
+              <p>Announcements</p>
+            <% end %>
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                New Application
+              </p>
+            </a>
+          </li>
+        </ul>
+    </nav>
+  </div>
+  <!-- /.sidebar -->
+</aside>

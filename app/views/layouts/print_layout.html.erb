@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : 'GA members Voting' %></title>
+  <%= csrf_meta_tags %>
+
+   <style>
+
+
+       body {
+           font-family: serif
+       }
+
+       @font-face {
+           font-family: 'Rancho';
+           font-style: normal;
+           font-weight: 400;
+           src: local('Rancho Regular'), local('Rancho-Regular'), url(public/webfonts/46kulbzmXjLaqZRVam_h.woff2) format('woff2');
+           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+       }
+
+
+      h1 {
+          font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif, cursive;
+          font-size: 36pt;
+          line-height: 14mm
+      }
+
+      table.data-table {
+          width: 100%;
+          border-collapse: collapse;
+
+      }
+
+      table.data-table tbody tr,
+      table.data-table thead {
+          border: 1px solid #aeaeae;
+          border-radius: 6px;
+      }
+
+      table.data-table tbody td {
+          border: 1px solid #aeaeae;
+      }
+
+      table.data-table thead th {
+          border: 1px solid #aeaeae;
+      }
+
+      table.data-table td, table.data-table th {
+          color: #000000;
+          font-size: 12px;
+          border: 1px solid gray;
+          padding-left: 10px;
+      }
+
+      table.data-table thead {
+          background-color: #Fff;
+
+      }
+
+      table.data-table tbody {
+
+          height: auto;
+
+      }
+
+      table.data-table a {
+          color: blue;
+      }
+
+      table.dataTable {
+          color: black;
+      }
+
+      table.dataTable a {
+          color: blue;
+      }
+
+      thead {
+          display: table-header-group
+      }
+
+      tfoot {
+          display: table-row-group
+      }
+
+      tr {
+          page-break-inside: avoid
+      }
+      /*@page { margin: 0 }*/
+      /*body { margin: 0 }*/
+      .sheet {
+          margin: 0;
+          overflow: hidden;
+          position: relative;
+          box-sizing: border-box;
+          page-break-after: always;
+      }
+
+      /** Paper sizes **/
+      body.A3           .sheet { width: 297mm; height: 419mm }
+      body.A3.landscape .sheet { width: 420mm; height: 296mm }
+      body.A4           .sheet { width: 210mm  }
+      body.A4.landscape .sheet { width: 297mm; height: 209mm }
+      body.A5           .sheet { width: 148mm; height: 209mm }
+      body.A5.landscape .sheet { width: 210mm; height: 147mm }
+
+      /** Padding area **/
+      .sheet.padding-10mm { padding: 10mm }
+      .sheet.padding-15mm { padding: 15mm }
+      .sheet.padding-20mm { padding: 20mm }
+      .sheet.padding-25mm { padding: 25mm }
+
+      /** For screen preview **/
+      @media screen {
+          .sheet {
+
+              box-shadow: 0 .5mm 2mm rgba(0,0,0,.3);
+              margin: 5mm;
+          }
+      }
+
+      /** Fix for Chrome issue #273306 **/
+      @media print {
+          body.A3.landscape { width: 420mm }
+          body.A3, body.A4.landscape { width: 297mm }
+          body.A4, body.A5.landscape { width: 210mm }
+          body.A5                    { width: 148mm }
+
+          .break {
+              page-break-inside: auto;
+          }
+          .bb {
+              display:none !important;
+          }
+      }
+  </style>
+
+  <style>@page {
+      size: A4
+  }</style>
+</head>
+
+<%= yield %>
+
+
+</html>
