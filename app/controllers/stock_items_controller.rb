@@ -22,6 +22,8 @@ class StockItemsController < ApplicationController
 
   def create
     @stock_item = StockItem.new(stock_item_params)
+    @stock_item.qty = 0
+    @stock_item.cost = 0
     @stock_item.total = 0
     flash[:notice] = 'StockItem was successfully created.' if @stock_item.save
     redirect_to stock_items_path

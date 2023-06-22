@@ -63,13 +63,19 @@
               <li class="nav-item">
                 <%= link_to stock_items_path, class: "nav-link #{active_link? "active", 'stock_items'}" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Stock Item</p>
+                  <p>Stock Items</p>
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to company_types_path, class: "nav-link #{active_link? "active", 'company_types'}" do %>
+                <%= link_to stock_ins_path, class: "nav-link #{active_link? "active", 'stock_ins'}" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Company Types</p>
+                  <p>Stock In</p>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to stock_outs_path, class: "nav-link #{active_link? "active", 'stock_outs'}" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stock Out</p>
                 <% end %>
               </li>
             </ul>

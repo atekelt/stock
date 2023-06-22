@@ -11,7 +11,7 @@
     <br>
   
     <b>Location:</b>
-    <%= @stock_item.location %>
+    <%= @stock_item.location.name %>
     <br>
   
     <b>Reference:</b>
@@ -19,11 +19,11 @@
     <br>
   
     <b>Company:</b>
-    <%= @stock_item.company %>
+    <%= @stock_item.company.name %>
     <br>
   
     <b>Qty:</b>
-    <%= @stock_item.qty %> <% if @stock_item.qty_type %><%= @stock_item.qty_type.name %><% end %>
+    <%= @stock_item.qty %><% end %>
     <br>
   
   

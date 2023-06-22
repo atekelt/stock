@@ -26,10 +26,6 @@
         
         <th>Qty</th>
         
-        <th>Cost</th>
-        
-        <th>Total</th>
-        
         <th>Image</th>
         
         <th> </th>
@@ -48,10 +44,6 @@
             <td><%= stock_item.company.name %></td>
           
             <td><%= stock_item.qty %> <% if stock_item.qty_type %><%= stock_item.qty_type.name %><% end %></td>
-          
-            <td><%= stock_item.cost %></td>
-          
-            <td><%= stock_item.total %></td>
           
             <td><%= image_tag(stock_item.image, class:"rounded", style: "width:150px") %></td>
           

@@ -1,0 +1,56 @@
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"> Stock ins</h3>
+    <div class="card-tools">
+      <%= link_to "New Stock in", new_stock_in_path, class: 'btn btn-sm btn-primary' %>
+
+
+
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+
+  <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm">
+    <thead>
+      <tr>
+     	  
+        <th>Stock item</th>
+        
+        <th>Qty</th>
+        
+        <th>Cost</th>
+        
+        <th>Total</th>
+        
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @stock_ins.each do |stock_in| %>
+        <%= content_tag :tr, id: dom_id(stock_in), class: dom_class(stock_in) do %>
+           
+            <td><%= stock_in.stock_item.name %></td>
+          
+            <td><%= stock_in.qty %> <%= stock_in.qty_type.name %></td>
+          
+            <td><%= stock_in.cost %></td>
+          
+            <td><%= stock_in.total %></td>
+          
+          <td>
+              <%= link_to "Detail",stock_in, class: 'btn btn-sm btn-primary'   %>
+
+              <%= link_to "Edit" ,edit_stock_in_path(stock_in), class: 'btn btn-sm btn-info'   %>
+
+              <%= button_to "Delete", stock_in_path(stock_in), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+

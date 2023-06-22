@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@stock_out) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs col-md-7 ms-lg-5">
+    <%= f.association :stock_item %>
+    <%= f.input :qty %>
+    <%= f.association :qty_type %>
+    <%= f.input :cost %>
+  </div>
+<div class="card-footer">
+  <%= link_to "Back",stock_outs_path, class: 'btn btn-xs btn-primary btn-xs'   %>
+
+  <%= f.button :submit, class: "btn btn-xs btn-primary btn-xs" %>
+</div>
+<% end %>

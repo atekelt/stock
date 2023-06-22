@@ -53,5 +53,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :locations
   resources :qty_types
+  resources :stock_ins
+  resources :stock_outs
 
 end
