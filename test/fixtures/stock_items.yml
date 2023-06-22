@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  location: one
+  reference: MyText
+  company: one
+  qty: 1.5
+  qty_type: one
+  cost: 1.5
+  total: 1.5
+
+two:
+  name: MyString
+  location: two
+  reference: MyText
+  company: two
+  qty: 1.5
+  qty_type: two
+  cost: 1.5
+  total: 1.5

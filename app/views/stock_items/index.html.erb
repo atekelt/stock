@@ -1,0 +1,72 @@
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"> Stock items</h3>
+    <div class="card-tools">
+      <%= link_to "New Stock item", new_stock_item_path, class: 'btn btn-sm btn-primary' %>
+
+
+
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+
+  <table class=" dtable table table-striped table-bordered table-hover table-sm table-light shadow-sm">
+    <thead>
+      <tr>
+     	  
+        <th>Name</th>
+        
+        <th>Location</th>
+        
+        <th>Reference</th>
+        
+        <th>Company</th>
+        
+        <th>Qty</th>
+        
+        <th>Cost</th>
+        
+        <th>Total</th>
+        
+        <th>Image</th>
+        
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @stock_items.each do |stock_item| %>
+        <%= content_tag :tr, id: dom_id(stock_item), class: dom_class(stock_item) do %>
+           
+            <td><%= stock_item.name %></td>
+          
+            <td><%= stock_item.location.name %></td>
+          
+            <td><%= stock_item.reference %></td>
+          
+            <td><%= stock_item.company.name %></td>
+          
+            <td><%= stock_item.qty %> <% if stock_item.qty_type %><%= stock_item.qty_type.name %><% end %></td>
+          
+            <td><%= stock_item.cost %></td>
+          
+            <td><%= stock_item.total %></td>
+          
+            <td><%= image_tag(stock_item.image, class:"rounded", style: "width:150px") %></td>
+          
+          <td>
+              <%= link_to "Detail",stock_item, class: 'btn btn-sm btn-primary'   %>
+
+              <%= link_to "Edit" ,edit_stock_item_path(stock_item), class: 'btn btn-sm btn-info'   %>
+
+              <%= button_to "Delete", stock_item_path(stock_item), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+

@@ -8,34 +8,73 @@
 
   </div>
   <!-- Sidebar -->
-  <div class="sidebar ">
+  <div class="sidebar">
+    
     <nav class="mt-2">
       <!-- Sidebar Menu -->
-        <ul class="nav nav-pills nav-sidebar flex-column gap-2" data-lte-toggle="treeview" role="menu" data-accordion="false">
-          <li class="nav-item">
-            <a class="nav-link ">
-              <i class="nav-icon fas fa-users-cog"></i>
-              <p>
-                Parent
-              </p>
-            </a>
-          </li>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-lte-toggle="treeview" role="menu" data-accordion="true">
           <li class="nav-item active">
-            <%= link_to root_path, class: "nav-link #{active_link? "active", 'message'}" do %>
-              <i class="nav-icon fas fa-bullhorn"></i>
-              <p>Announcements</p>
+            <%= link_to qty_types_path, class: "nav-link #{active_link? "active", 'qty_types'}" do %>
+              <i class="nav-icon fas fa-list"></i>
+              <p>Quantity Types</p>
             <% end %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
+            <%= link_to locations_path, class: "nav-link #{active_link? "active", 'locations'}" do %>
+             <i class="nav-icon fas fa-map"></i>
+              <p>Locations</p>
+            <% end %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/">
-              <i class="nav-icon fas fa-file"></i>
+          <li class="nav-item active">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-building"></i>
               <p>
-                New Application
+                Company
+                <i class="fas fa-angle-down right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= link_to companies_path, class: "nav-link #{active_link? "active", 'companies'}" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Companies</p>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to company_types_path, class: "nav-link #{active_link? "active", 'company_types'}" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Company Types</p>
+                <% end %>
+              </li>
+            </ul>
           </li>
+          <li class="nav-item">
+          <hr>
+          </li>
+          <li class="nav-item active">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-layer-group"></i>
+              <p>
+                Stock
+                <i class="fas fa-angle-down right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= link_to stock_items_path, class: "nav-link #{active_link? "active", 'stock_items'}" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stock Item</p>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to company_types_path, class: "nav-link #{active_link? "active", 'company_types'}" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Company Types</p>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          
         </ul>
     </nav>
   </div>

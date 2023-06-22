@@ -1,0 +1,48 @@
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"> Companies</h3>
+    <div class="card-tools">
+      <%= link_to "New Company", new_company_path, class: 'btn btn-sm btn-primary' %>
+
+
+
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+
+  <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm">
+    <thead>
+      <tr>
+     	  
+        <th>Name</th>
+        
+        <th>Company type</th>
+        
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @companies.each do |company| %>
+        <%= content_tag :tr, id: dom_id(company), class: dom_class(company) do %>
+           
+            <td><%= company.name %></td>
+          
+            <td><%= company.company_type %></td>
+          
+          <td>
+              <%= link_to "Detail",company, class: 'btn btn-sm btn-primary'   %>
+
+              <%= link_to "Edit" ,edit_company_path(company), class: 'btn btn-sm btn-info'   %>
+
+              <%= button_to "Delete", company_path(company), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+

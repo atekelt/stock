@@ -1,0 +1,24 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      Company
+    </h4>
+  </div>
+  <div class="card-body">
+  
+    <b>Name:</b>
+    <%= @company.name %>
+    <br>
+  
+    <b>Company type:</b>
+    <%= @company.company_type %>
+    <br>
+  
+  </div>
+  <div class="card-footer">
+    <%= link_to "Edit" ,edit_company_path(@company), class: 'btn btn-sm btn-info'   %>
+    <%= button_to "Delete", company_path(@company), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+
+       </div>
+</div>

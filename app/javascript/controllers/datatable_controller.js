@@ -20,6 +20,7 @@ export default class extends Controller {
                 responsive: true,
                 processing: true,
                 info: true,
+                button: true,
                 // dom: 'Pfrtip'
             });
         }

@@ -1,0 +1,49 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      Stock item
+    </h4>
+  </div>
+  <div class="card-body">
+  
+    <b>Name:</b>
+    <%= @stock_item.name %>
+    <br>
+  
+    <b>Location:</b>
+    <%= @stock_item.location %>
+    <br>
+  
+    <b>Reference:</b>
+    <%= @stock_item.reference %>
+    <br>
+  
+    <b>Company:</b>
+    <%= @stock_item.company %>
+    <br>
+  
+    <b>Qty:</b>
+    <%= @stock_item.qty %> <% if @stock_item.qty_type %><%= @stock_item.qty_type.name %><% end %>
+    <br>
+  
+  
+    <b>Cost:</b>
+    <%= @stock_item.cost %>
+    <br>
+  
+    <b>Total:</b>
+    <%= @stock_item.total %>
+    <br>
+  
+    <b>Image:</b>
+    <%= image_tag(@stock_item.image, class:"rounded", style: "width:150px") %>
+    <br>
+  
+  </div>
+  <div class="card-footer">
+    <%= link_to "Edit" ,edit_stock_item_path(@stock_item), class: 'btn btn-sm btn-info'   %>
+    <%= button_to "Delete", stock_item_path(@stock_item), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+
+       </div>
+</div>

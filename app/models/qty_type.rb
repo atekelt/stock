@@ -1,0 +1,2 @@
+class QtyType < ApplicationRecord
+end

@@ -1,0 +1,47 @@
+<div id="<%= dom_id stock_item %>">
+  <p>
+    <strong>Name:</strong>
+    <%= stock_item.name %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= stock_item.location_id %>
+  </p>
+
+  <p>
+    <strong>Reference:</strong>
+    <%= stock_item.reference %>
+  </p>
+
+  <p>
+    <strong>Company:</strong>
+    <%= stock_item.company_id %>
+  </p>
+
+  <p>
+    <strong>Qty:</strong>
+    <%= stock_item.qty %>
+  </p>
+
+  <p>
+    <strong>Qty type:</strong>
+    <%= stock_item.qty_type_id %>
+  </p>
+
+  <p>
+    <strong>Cost:</strong>
+    <%= stock_item.cost %>
+  </p>
+
+  <p>
+    <strong>Total:</strong>
+    <%= stock_item.total %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <%= link_to stock_item.image.filename, stock_item.image if stock_item.image.attached? %>
+  </p>
+
+</div>

@@ -1,0 +1,44 @@
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"> Qty types</h3>
+    <div class="card-tools">
+      <%= link_to "New Qty type", new_qty_type_path, class: 'btn btn-sm btn-primary' %>
+
+
+
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+
+  <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm">
+    <thead>
+      <tr>
+     	  
+        <th>Name</th>
+        
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @qty_types.each do |qty_type| %>
+        <%= content_tag :tr, id: dom_id(qty_type), class: dom_class(qty_type) do %>
+           
+            <td><%= qty_type.name %></td>
+          
+          <td>
+              <%= link_to "Detail",qty_type, class: 'btn btn-sm btn-primary'   %>
+
+              <%= link_to "Edit" ,edit_qty_type_path(qty_type), class: 'btn btn-sm btn-info'   %>
+
+              <%= button_to "Delete", qty_type_path(qty_type), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+

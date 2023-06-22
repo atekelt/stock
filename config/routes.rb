@@ -48,4 +48,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :stock_items
+  resources :company_types
+  resources :companies
+  resources :locations
+  resources :qty_types
+
 end
