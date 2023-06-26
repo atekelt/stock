@@ -9,6 +9,7 @@ import * as bootstrap from "bootstrap";
 
 import "jquery";
 import "adminlte";
+import "bootstrap.bundle.min";
 import "overlay-scrollbars";
 import "jquery.dataTables.min";
 import "dataTables.bootstrap5.min";

@@ -31,7 +31,13 @@ class StockInsController < ApplicationController
   end
 
   def update
+    old_qty = @stock_in.qty
     flash[:notice] = 'StockIn was successfully updated.' if @stock_in.update(stock_in_params)
+    total = @stock_in.qty * @stock_in.cost
+    @stock_in.update(total:total)
+    stock_item = StockItem.find(@stock_in.stock_item.id)
+    new_qty = (stock_item.qty - old_qty) + @stock_in.qty
+    stock_item.update(qty: new_qty)
     redirect_to stock_ins_path
   end
 

@@ -1,49 +1,173 @@
-<div class="card shadow">
-  <div class="card-header">
-    <h4>
-      Stock item
-    </h4>
-  </div>
-  <div class="card-body">
-  
-    <b>Name:</b>
-    <%= @stock_item.name %>
-    <br>
-  
-    <b>Location:</b>
-    <%= @stock_item.location.name %>
-    <br>
-  
-    <b>Reference:</b>
-    <%= @stock_item.reference %>
-    <br>
-  
-    <b>Company:</b>
-    <%= @stock_item.company.name %>
-    <br>
-  
-    <b>Qty:</b>
-    <%= @stock_item.qty %><% end %>
-    <br>
-  
-  
-    <b>Cost:</b>
-    <%= @stock_item.cost %>
-    <br>
-  
-    <b>Total:</b>
-    <%= @stock_item.total %>
-    <br>
-  
-    <b>Image:</b>
-    <%= image_tag(@stock_item.image, class:"rounded", style: "width:150px") %>
-    <br>
-  
-  </div>
-  <div class="card-footer">
-    <%= link_to "Edit" ,edit_stock_item_path(@stock_item), class: 'btn btn-sm btn-info'   %>
-    <%= button_to "Delete", stock_item_path(@stock_item), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+        <div class="row">
+          <div class="col-md-3">
 
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <%= image_tag(@stock_item.image, class:"img-fluid") %>
+                </div>
 
-       </div>
-</div>
+                <h3 class="profile-username text-center"><%= @stock_item.name %></h3>
+
+                <p class="text-muted text-center"><%= @stock_item.reference %></p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Location</b> <a class="float-right"><%= @stock_item.location.name %></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Quantity</b> <a class="float-right"><%= @stock_item.qty %></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Company</b> <a class="float-right"><%= @stock_item.company.name %></a>
+                  </li>
+                </ul>
+
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Stock In</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Stock Out</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="timeline">
+                    <div class="card">
+                        <div class="card-header">
+                          <h3 class="card-title"> Stock Ins</h3>
+                          <div class="card-tools">
+                            <%= link_to "New Stock In", new_stock_in_path, class: 'btn btn-sm btn-primary' %>
+                          </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm" style="width:100%;">
+                            <thead>
+                              <tr>
+                                
+                                <th>Stock item</th>
+                                
+                                <th>Qty</th>
+                                
+                                <th>Cost</th>
+                                
+                                <th>Total</th>
+
+                                <th>Created at</th>
+
+                                <th>Updated at</th>
+                                
+                                <th> </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% @stock_ins.each do |stock_in| %>
+                                <%= content_tag :tr, id: dom_id(stock_in), class: dom_class(stock_in) do %>
+                                  
+                                    <td><%= stock_in.stock_item.name %></td>
+                                  
+                                    <td><%= stock_in.qty %> <%= stock_in.qty_type.name %> </td>
+                                  
+                                    <td><%= stock_in.cost %></td>
+                                  
+                                    <td><%= stock_in.total %></td>
+
+                                    <td><%= stock_in.created_at.day %> - <%= stock_in.created_at.month %> - <%= stock_in.created_at.year %></td>
+
+                                    <td><%= stock_in.updated_at.day %> - <%= stock_in.updated_at.month %> - <%= stock_in.updated_at.year %></td>
+                                  
+                                  <td>
+                                      <%# <%= link_to "Detail",stock_in, class: 'btn btn-sm btn-primary'   %> 
+
+                                      <%= link_to "Edit" ,edit_stock_in_path(stock_in), class: 'btn btn-sm btn-info'   %>
+
+                                      <%# <%= button_to "Delete", stock_out_path(stock_out), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                                        </td>
+                                <% end %>
+                              <% end %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+                  <!-- /.tab-pane -->
+
+                  <div class="tab-pane" id="settings">
+                    <div class="card">
+                        <div class="card-header">
+                          <h3 class="card-title"> Stock outs</h3>
+                          <div class="card-tools">
+                            <%= link_to "New Stock out", new_stock_out_path, class: 'btn btn-sm btn-primary' %>
+                          </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm" style="width:100%;">
+                            <thead>
+                              <tr>
+                                
+                                <th>Stock item</th>
+                                
+                                <th>Qty</th>
+                                
+                                <th>Cost</th>
+                                
+                                <th>Total</th>
+
+                                <th>Created at</th>
+
+                                <th>Updated at</th>
+                                
+                                <th> </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% @stock_outs.each do |stock_out| %>
+                                <%= content_tag :tr, id: dom_id(stock_out), class: dom_class(stock_out) do %>
+                                  
+                                    <td><%= stock_out.stock_item.name %></td>
+                                  
+                                    <td><%= stock_out.qty %> <%= stock_out.qty_type.name %> </td>
+                                  
+                                    <td><%= stock_out.cost %></td>
+                                  
+                                    <td><%= stock_out.total %></td>
+
+                                    <td><%= stock_out.created_at.day %> - <%= stock_out.created_at.month %> - <%= stock_out.created_at.year %></td>
+
+                                    <td><%= stock_out.updated_at.day %> - <%= stock_out.updated_at.month %> - <%= stock_out.updated_at.year %></td>
+                                  
+                                  <td>
+                                      <%# <%= link_to "Detail",stock_out, class: 'btn btn-sm btn-primary'   %>
+
+                                      <%= link_to "Edit" ,edit_stock_out_path(stock_out), class: 'btn btn-sm btn-info'   %>
+
+                                      <%# <%= button_to "Delete", stock_out_path(stock_out), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                                        </td>
+                                <% end %>
+                              <% end %>
+                            </tbody>
+                          </table>
+                        </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->

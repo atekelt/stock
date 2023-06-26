@@ -9,7 +9,10 @@ class StockItemsController < ApplicationController
   end
 
   def show
-    respond_with(@stock_item)
+    @stock_ins = StockIn.where(stock_item_id:@stock_item.id)
+    @stock_outs = StockOut.where(stock_item_id:@stock_item.id)
+    @all = @stock_ins
+    respond_with(@stock_ins, @stock_outs, @all)
   end
 
   def new

@@ -5,7 +5,7 @@
 
   <div class="form-inputs col-md-7 ms-lg-5">
     <%= f.association :stock_item %>
-    <%= f.input :qty %>
+    <%= f.input :qty, input_html: { min: '0' } %>
     <%= f.association :qty_type %>
     <%= f.input :cost %>
   </div>

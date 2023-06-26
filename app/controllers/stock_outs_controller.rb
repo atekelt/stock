@@ -36,13 +36,27 @@ class StockOutsController < ApplicationController
   end
 
   def update
-    flash[:notice] = 'StockOut was successfully updated.' if @stock_out.update(stock_out_params)
-    respond_with(@stock_out)
+    old_qty = @stock_out.qty
+    stock_item = StockItem.find(@stock_out.stock_item.id)
+    @stock_out.update(stock_out_params)
+    
+    if ((stock_item.qty + old_qty) - @stock_out.qty) >= 0
+      total = @stock_out.qty * @stock_out.cost
+      @stock_out.update(total:total)
+      
+      new_qty = (stock_item.qty + old_qty) - @stock_out.qty
+      stock_item.update(qty: new_qty)
+      redirect_to stock_outs_path, notice:'StockOut was successfully updated.'
+    else
+      @stock_out.update(qty:old_qty)
+      redirect_to stock_outs_path, alert:"Stock Out Update request denied!!!"
+    end
+
   end
 
   def destroy
     @stock_out.destroy
-    respond_with(@stock_out)
+    redirect_to stock_outs_path
   end
 
   private

@@ -16,6 +16,7 @@ pin 'sortablejs' # @1.14.0
 pin 'overlay-scrollbars'
 pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin 'adminlte' # @3.2.2
+pin 'bootstrap.bundle.min'
 pin 'jquery.dataTables.min'
 pin 'dataTables.bootstrap5.min'
 pin 'dataTables.responsive.min'

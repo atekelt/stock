@@ -11,46 +11,45 @@
   </div>
   <!-- /.card-header -->
   <div class="card-body">
-
-  <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm">
-    <thead>
-      <tr>
-     	  
-        <th>Stock item</th>
-        
-        <th>Qty</th>
-        
-        <th>Cost</th>
-        
-        <th>Total</th>
-        
-        <th> </th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @stock_outs.each do |stock_out| %>
-        <%= content_tag :tr, id: dom_id(stock_out), class: dom_class(stock_out) do %>
-           
-            <td><%= stock_out.stock_item.name %></td>
+    <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm">
+      <thead>
+        <tr>
           
-            <td><%= stock_out.qty %> <%= stock_out.qty_type.name %> </td>
+          <th>Stock item</th>
           
-            <td><%= stock_out.cost %></td>
+          <th>Qty</th>
           
-            <td><%= stock_out.total %></td>
+          <th>Cost</th>
           
-          <td>
-              <%= link_to "Detail",stock_out, class: 'btn btn-sm btn-primary'   %>
+          <th>Total</th>
+          
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stock_outs.each do |stock_out| %>
+          <%= content_tag :tr, id: dom_id(stock_out), class: dom_class(stock_out) do %>
+            
+              <td><%= stock_out.stock_item.name %></td>
+            
+              <td><%= stock_out.qty %> <%= stock_out.qty_type.name %> </td>
+            
+              <td><%= stock_out.cost %></td>
+            
+              <td><%= stock_out.total %></td>
+            
+            <td>
+                <%= link_to "Detail",stock_out, class: 'btn btn-sm btn-primary'   %>
 
-              <%= link_to "Edit" ,edit_stock_out_path(stock_out), class: 'btn btn-sm btn-info'   %>
+                <%= link_to "Edit" ,edit_stock_out_path(stock_out), class: 'btn btn-sm btn-info'   %>
 
-              <%= button_to "Delete", stock_out_path(stock_out), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+                <%# <%= button_to "Delete", stock_out_path(stock_out), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
 
-                </td>
+                  </td>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
 </div>
 
