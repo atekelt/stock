@@ -52,6 +52,6 @@ class StockInsController < ApplicationController
     end
 
     def stock_in_params
-      params.require(:stock_in).permit(:stock_item_id, :qty, :qty_type_id, :cost, :total)
+      params.require(:stock_in).permit(:stock_item_id, :qty, :qty_type_id, :cost, :total, :stock_type)
     end
 end

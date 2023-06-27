@@ -11,7 +11,16 @@ class StockItemsController < ApplicationController
   def show
     @stock_ins = StockIn.where(stock_item_id:@stock_item.id)
     @stock_outs = StockOut.where(stock_item_id:@stock_item.id)
-    @all = @stock_ins
+    @all = []
+
+    @stock_ins.each do |stock|
+      @all << stock
+    end
+    @stock_outs.each do |stock|
+      @all << stock
+    end
+    @all = @all.sort_by(&:created_at)
+
     respond_with(@stock_ins, @stock_outs, @all)
   end
 

@@ -19,15 +19,14 @@
       
       <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-          <%= image_tag current_user.try(:person).try(:photo), class: "user-image img-circl shadow-sm" if current_user.try(:person).try(:photo).try(:attached?) %>
-          <i class="nav-icon fas fa-user"></i>
+          <%= image_tag "user.png", alt: "user", class: "user-image img-circl shadow-sm" %>
           <span class="d-none d-md-inline"><%= current_user.user_name %></span>
         </a>
 
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <!-- User image -->
-          <li class="user-header bg-primary">
-            <%= image_tag current_user.try(:person).try(:photo), class: "img-circl shadow-sm" if current_user.try(:person).try(:photo).try(:attached?) %>
+          <li class="user-header">
+            <%= image_tag "user.png", alt: "user", class: "img-circl shadow-sm" %>
 
             <p>
               <%= current_user.full_name %>

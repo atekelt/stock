@@ -34,13 +34,87 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Stock In</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#all" data-toggle="tab">All</a></li>
                   <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Stock Out</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Stock In</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
-                  <div class="active tab-pane" id="timeline">
+                 <div class="active tab-pane" id="all">
+                    <div class="card">
+                        <div class="card-header">
+                          <h3 class="card-title"> All Stock In and Stock Out</h3>
+                          <div class="card-tools">
+                            <div class="dropdown">
+                              <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                New Stock
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <%= link_to "New Stock In", new_stock_in_path, class: 'dropdown-item' %>
+                                <%= link_to "New Stock Out", new_stock_out_path, class: 'dropdown-item' %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm" style="width:100%;">
+                            <thead>
+                              <tr>
+                                
+                                <th>Stock item</th>
+                                
+                                <th>Qty</th>
+
+                                <th>Stock Type</th>
+                                
+                                <th>Cost</th>
+                                
+                                <th>Total</th>
+
+                                <th>Created at</th>
+
+                                <th>Updated at</th>
+                                
+                                <th> </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% @all.each do |stock_in| %>
+                                <%= content_tag :tr, id: dom_id(stock_in), class: dom_class(stock_in) do %>
+                                  
+                                    <td><%= stock_in.stock_item.name %></td>
+                                  
+                                    <td><%= stock_in.qty %> <%= stock_in.qty_type.name %> </td>
+                                  
+                                    <td><%= stock_in.stock_type %></td>
+
+                                    <td><%= stock_in.cost %></td>
+                                  
+                                    <td><%= stock_in.total %></td>
+
+                                    <td><%= stock_in.created_at.day %> - <%= stock_in.created_at.month %> - <%= stock_in.created_at.year %></td>
+
+                                    <td><%= stock_in.updated_at.day %> - <%= stock_in.updated_at.month %> - <%= stock_in.updated_at.year %></td>
+                                  
+                                  <td>
+                                      <%# <%= link_to "Detail",stock_in, class: 'btn btn-sm btn-primary'   %> 
+
+                                      <%= link_to "Edit" ,edit_stock_in_path(stock_in), class: 'btn btn-sm btn-info'   %>
+
+                                      <%# <%= button_to "Delete", stock_out_path(stock_out), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                                        </td>
+                                <% end %>
+                              <% end %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="timeline">
                     <div class="card">
                         <div class="card-header">
                           <h3 class="card-title"> Stock Ins</h3>
