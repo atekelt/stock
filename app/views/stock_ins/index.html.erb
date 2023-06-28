@@ -23,6 +23,10 @@
         <th>Cost</th>
         
         <th>Total</th>
+
+        <th>Created At</th>
+
+        <th>Updated At</th>
         
         <th> </th>
       </tr>
@@ -38,6 +42,10 @@
             <td><%= stock_in.cost %></td>
           
             <td><%= stock_in.total %></td>
+
+            <td><%= stock_in.created_at.day %> - <%= stock_in.created_at.month %> - <%= stock_in.created_at.year %></td>
+
+            <td><%= stock_in.updated_at.day %> - <%= stock_in.updated_at.month %> - <%= stock_in.updated_at.year %></td>
           
           <td>
               <%= link_to "Detail",stock_in, class: 'btn btn-sm btn-primary'   %>

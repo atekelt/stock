@@ -2,6 +2,11 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @stock_items = StockItem.all.count
+    @stock_ins = StockIn.all.count
+    @stock_outs = StockOut.all.count
+    @companies = Company.all.count
+    @stocks = StockItem.limit(5)
     
   end
 
