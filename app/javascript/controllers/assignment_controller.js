@@ -81,11 +81,11 @@ export default class extends Controller {
         const table = document.querySelector(".dtable");
         if (table) {
             const dataTable = new DataTable(table, {
-                pagination: true,
-                searching: true,
-                responsive: true,
-                processing: true,
-                info: true,
+                // pagination: true,
+                // searching: true,
+                // responsive: true,
+                // processing: true,
+                // info: true,
             });
         }
     }

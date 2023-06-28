@@ -2,7 +2,7 @@ require "application_responder"
 
 class ApplicationController < ActionController::Base
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   # before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_paper_trail_whodunnit
   before_action :turbo_frame_request_variant
@@ -80,7 +80,7 @@ class ApplicationController < ActionController::Base
 
   def info_for_paper_trail
     # Save additional info
-    { ip: request.remote_ip, whodunnit: current_user.try(:id) }
+    # { ip: request.remote_ip, whodunnit: current_user.try(:id) }
   end
 
   def user_for_paper_trail

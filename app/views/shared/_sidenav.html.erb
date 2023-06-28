@@ -1,18 +1,17 @@
-<aside class="main-sidebar sidebar-bg-light sidebar-color-primary shadow">
-
-  <div class="brand-container ms-3">
+<aside class="main-sidebar sidebar-dark-primary shadow elevation-4">
+    <!-- Brand Logo -->
     <a href="<%= root_path %>" class="brand-link">
       <%= image_tag "logo_2.png",  alt: "Logo"    %>
       <span class="brand-text fw-bold" style="color: #3C7DDD"></span>
     </a>
 
-  </div>
-  <!-- Sidebar -->
-  <div class="sidebar">
-    
-    <nav class="mt-2">
+    <!-- Sidebar -->
+    <div class="sidebar">
       <!-- Sidebar Menu -->
-        <ul class="nav nav-pills nav-sidebar flex-column" data-lte-toggle="treeview" role="menu" data-accordion="true">
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
           <li class="nav-item active">
             <%= link_to qty_types_path, class: "nav-link #{active_link? "active", 'qty_types'}" do %>
               <i class="nav-icon fas fa-list"></i>
@@ -80,9 +79,9 @@
               </li>
             </ul>
           </li>
-          
         </ul>
-    </nav>
-  </div>
-  <!-- /.sidebar -->
-</aside>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

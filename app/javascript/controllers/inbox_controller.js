@@ -91,7 +91,7 @@ export default class extends Controller {
         if (table) {
             const dataTable = new DataTable(table, {
                 pagination: true,
-                searching: true,
+                // searching: true,
                 responsive: true,
                 processing: true,
                 info: true,

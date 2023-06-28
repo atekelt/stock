@@ -28,7 +28,7 @@ gem "stimulus-rails"
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
-gem 'paper_trail', '~> 12.1'
+gem 'paper_trail'
 gem 'ethiopian_date', '~> 2.2'
 
 
@@ -146,7 +146,6 @@ gem "responders", "~> 3.1"
  gem 'chartkick', '~> 4.1', '>= 4.1.3'
 gem 'groupdate', '~> 6.1'
 gem "acts_as_tenant", "~> 0.6.1"
-
 
 
 

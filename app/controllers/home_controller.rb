@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @stock_ins = StockIn.all.count
     @stock_outs = StockOut.all.count
     @companies = Company.all.count
-    @stocks = StockItem.limit(5)
+    @stocks = StockItem.order(created_at: :desc).limit(5)
     
   end
 
