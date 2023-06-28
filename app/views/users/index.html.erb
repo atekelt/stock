@@ -1,36 +1,54 @@
 
-<div class="card card-primary">
+<div class="card">
   <div class="card-header">
-    <h3 class="card-title">User Search</h3>
+    <h3 class="card-title"> Users</h3>
+    <div class="card-tools">
+      <%= link_to "New User", new_user_path, class: 'btn btn-sm btn-primary' %>
+
+
+
+    </div>
   </div>
-  <div class="card-body" data-controller="user" data-user-results-container>
+  <!-- /.card-header -->
+  <div class="card-body">
 
-    <form data-action="submit->user#search">
+  <table class=" dtable table table-striped table-bordered table-hover table-sm table-ligh shadow-sm">
+    <thead>
+      <tr>
+     	  
+        <th>E-mail</th>
+        
+        <th>User Name</th>
 
+        <th>Role</th>
+        
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <% if user.role != "Admin" %>
+          <%= content_tag :tr, id: dom_id(user), class: dom_class(user) do %>
+            
+              <td><%= user.email %></td>
+            
+              <td><%= user.user_name %></td>
 
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" data-user-target="term" placeholder="Enter user name ,email, name" aria-label="Recipient's username" aria-describedby="search-addon" style="width: 80%; border-right: 0;">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">   <span class="input-group-text" id="search-addon"><i class="fa fa-search"></i></span></button>
-      </div>
- </form>
+              <td><%= user.role %></td>
+            
+            <td>
+                <%# <%= link_to "Detail",user, class: 'btn btn-sm btn-primary'   %>
 
- <div data-user-target="resultsContainer">
+                <%= link_to "Edit" ,edit_user_path(user), class: 'btn btn-sm btn-info'   %>
 
- </div>
-<!--    <div class="d-flex justify-content-center" data-user-target="loading" style="display:none;">-->
-<!--      <div class="spinner-border" role="status">-->
-<!--        <span class="sr-only">Loading...</span>-->
-<!--      </div>-->
-<!--    </div>-->
+                <%= button_to "Delete", user_path(user), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+
+                  </td>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
 

@@ -8,12 +8,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @roles = Role.all
-
-    if params[:user_name]
-      search_type = params[:logged_as]
-      @users = User.where('user_name=?', search_type)
-    end
+    # @roles = Role.all
+    @users = User.all
+    # if params[:user_name]
+    #   search_type = params[:logged_as]
+    #   @users = User.where('user_name=?', search_type)
+    # end
   end
 
   def search
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     # @user.approved = true
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to users_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
+        format.html { redirect_to users_path, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -144,7 +144,7 @@ class UsersController < ApplicationController
   def user_params
 
     param =
-      unless current_user.admin?
+      unless current_user.role == "Admin"
         params
           .require(:user)
           .permit(:user_name, :email, :password, :password_confirmation, role_ids: [])

@@ -6,8 +6,7 @@ class Ability
   def initialize(user)
 
     user ||= User.new # guest user (not logged in)
-    can :new, Applicant
-    current_role = user.current_role
+    current_role = user.role
 
     if current_role == "Admin"
       can :manage, :all
