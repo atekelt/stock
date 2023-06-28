@@ -49,10 +49,10 @@
           </li>
           <% if current_user.role == "Admin" %>
             <li class="nav-item">
-            <hr style="background-color:white;">
+              <hr style="background-color:white;">
             </li>
-            <li class="nav-item active">
-              <%= link_to users_path, class: "nav-link #{active_link? "active", 'locations'}" do %>
+            <li class="nav-item">
+              <%= link_to users_path, class: "nav-link #{active_link? "active", 'users'}" do %>
               <i class="nav-icon fas fa-users"></i>
                 <p>Users</p>
               <% end %>
