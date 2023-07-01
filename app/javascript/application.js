@@ -17,9 +17,13 @@ import "dataTables.responsive.min";
 import "dataTables.searchPanes";
 import "dataTables.select";
 import "searchPanes.bootstrap5";
+import "dataTables.buttons.min";
 import "select.bootstrap5";
+import "jszip.min";
 import "select2.min";
 import "ii";
+import "pdfmake.min";
+import "buttons.html5.min";
 import "timer";
 import "chartkick"
 import "Chart.bundle"

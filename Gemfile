@@ -149,3 +149,9 @@ gem "acts_as_tenant", "~> 0.6.1"
 
 
 
+
+gem "caxlsx", "~> 3.4"
+
+gem "caxlsx_rails", "~> 0.6.3"
+
+gem "jszip-rails", "~> 2.5"
