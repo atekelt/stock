@@ -24,6 +24,7 @@ import "select2.min";
 import "ii";
 import "pdfmake.min";
 import "buttons.html5.min";
+import "buttons.colVis.min";
 import "timer";
 import "chartkick"
 import "Chart.bundle"

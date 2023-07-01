@@ -23,6 +23,7 @@ pin 'dataTables.responsive.min'
 pin 'dataTables.buttons.min'
 pin 'jszip.min'
 pin 'buttons.html5.min'
+pin 'buttons.colVis.min'
 pin 'select2.min' # @4.1.0
 pin 'ii'
 pin "chartkick", to: "chartkick.js"

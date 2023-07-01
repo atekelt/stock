@@ -66,18 +66,21 @@
   $(document).ready(function() {
     $('#stock_ins_list').DataTable( {
        dom:
-       '<"row justify-content-between mb-2 align-items-center"' +
-       '<"col-md-auto col-12"B>' +
-       '<"col-md-auto col-12 text-center"l>' +
-       '<"col-md-auto col-12"f>' +
+       '<"row justify-content-between mb-2"' +
+       '<"col-sm-auto col-12"B>' +
+       '<"col-sm-auto col-12"f>' +
        ">" +
        '<"table-responsive"t>' +
        '<"d-flex justify-content-between align-items-center"ip>',
         buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5'
-            ]
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ]
         } );
     } );
 </script>
