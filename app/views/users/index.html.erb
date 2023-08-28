@@ -16,7 +16,7 @@
     <thead>
       <tr>
      	  
-        <th>E-mail</th>
+        <%# <th>E-mail</th> %>
         
         <th>User Name</th>
 
@@ -30,7 +30,7 @@
         <% if user.role != "Admin" %>
           <%= content_tag :tr, id: dom_id(user), class: dom_class(user) do %>
             
-              <td><%= user.email %></td>
+              <%# <td><%= user.email</td> %>
             
               <td><%= user.user_name %></td>
 

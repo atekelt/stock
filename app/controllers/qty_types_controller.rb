@@ -23,7 +23,7 @@ class QtyTypesController < ApplicationController
   def create
     @qty_type = QtyType.new(qty_type_params)
     flash[:notice] = 'QtyType was successfully created.' if @qty_type.save
-    respond_with(@qty_type)
+    redirect_to qty_types_path
   end
 
   def update

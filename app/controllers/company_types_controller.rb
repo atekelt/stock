@@ -23,7 +23,7 @@ class CompanyTypesController < ApplicationController
   def create
     @company_type = CompanyType.new(company_type_params)
     flash[:notice] = 'CompanyType was successfully created.' if @company_type.save
-    respond_with(@company_type)
+    redirect_to company_types_path
   end
 
   def update
