@@ -111,7 +111,7 @@
 
               <%= link_to "Edit" ,edit_stock_item_path(stock_item), class: 'btn btn-sm btn-info'   %>
 
-              <%= button_to "Delete", stock_item_path(stock_item), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+              <% if current_user.role == "Admin" %><%= button_to "Delete", stock_item_path(stock_item), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %><% end %>
 
                 </td>
         <% end %>

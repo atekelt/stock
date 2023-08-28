@@ -3,10 +3,9 @@
   <div class="card-header">
     <h3 class="card-title"> Qty types</h3>
     <div class="card-tools">
-      <%= link_to "New Qty type", new_qty_type_path, class: 'btn btn-sm btn-primary' %>
-
-
-
+      <% if current_user.role == "Admin" %>
+        <%= link_to "New Qty type", new_qty_type_path, class: 'btn btn-sm btn-primary' %>
+      <% end %>
     </div>
   </div>
   <!-- /.card-header -->
@@ -30,9 +29,9 @@
           <td>
               <%# <%= link_to "Detail",qty_type, class: 'btn btn-sm btn-primary'   %>
 
-              <%= link_to "Edit" ,edit_qty_type_path(qty_type), class: 'btn btn-sm btn-info'   %>
+              <% if current_user.role == "Admin" %><%= link_to "Edit" ,edit_qty_type_path(qty_type), class: 'btn btn-sm btn-info'   %><% end %>
 
-              <%= button_to "Delete", qty_type_path(qty_type), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+              <% if current_user.role == "Admin" %><%= button_to "Delete", qty_type_path(qty_type), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %><% end %>
 
                 </td>
         <% end %>

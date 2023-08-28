@@ -3,10 +3,7 @@
   <div class="card-header">
     <h3 class="card-title"> Company types</h3>
     <div class="card-tools">
-      <%= link_to "New Company type", new_company_type_path, class: 'btn btn-sm btn-primary' %>
-
-
-
+      <% if current_user.role == "Admin" %><%= link_to "New Company type", new_company_type_path, class: 'btn btn-sm btn-primary' %><% end %>
     </div>
   </div>
   <!-- /.card-header -->
@@ -29,11 +26,11 @@
           
           <td>
               <%# <%= link_to "Detail",company_type, class: 'btn btn-sm btn-primary'   %>
+              <% if current_user.role == "Admin" %>
+                <%= link_to "Edit" ,edit_company_type_path(company_type), class: 'btn btn-sm btn-info'   %>
 
-              <%= link_to "Edit" ,edit_company_type_path(company_type), class: 'btn btn-sm btn-info'   %>
-
-              <%= button_to "Delete", company_type_path(company_type), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
-
+                <%= button_to "Delete", company_type_path(company_type), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: 'btn btn-sm btn-danger'  %>
+              <% end %>
                 </td>
         <% end %>
       <% end %>
